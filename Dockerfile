@@ -1,7 +1,7 @@
 FROM java:8
 
 # Airpal
-ENV AIRPAL_COMMIT 550ad14a589a41c95a7a82d14560f3995c419188
+ENV AIRPAL_COMMIT e3e65283d66d866c3321fd921e02428c6aed1747
 ENV AIRPAL_HOME /opt/airpal
 WORKDIR $AIRPAL_HOME
 
@@ -9,7 +9,7 @@ RUN set -x \
   && apt-get update && apt-get install -y make g++ \
   && export BUILD_DIR=$(mktemp -d) && cd "${BUILD_DIR}" \
   && git clone https://github.com/airbnb/airpal \
-  && cd airpal && git checkout "${AIRPAL_COMMIT}" \
+  && cd airpal \
   && ./gradlew clean shadowJar \
   && mkdir -p ${AIRPAL_HOME} \
   && cp build/libs/airpal-*-all.jar $AIRPAL_HOME \
