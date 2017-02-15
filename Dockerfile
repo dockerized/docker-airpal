@@ -19,8 +19,6 @@ RUN set -x \
   && apt-get clean
 
 ADD config/reference.h2.yml $AIRPAL_HOME/reference.yml
-ADD airpal_launcher.sh $AIRPAL_HOME/launcher
-RUN chmod +x $AIRPAL_HOME/launcher
 
 RUN set -x \
   && java -Duser.timezone=UTC -cp ${AIRPAL_HOME}/airpal-*-all.jar \
