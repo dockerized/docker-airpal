@@ -1,0 +1,10 @@
+version: '2'
+services:
+  shadowsocks:
+    image: xiocode/airpal
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+    environment:
+      - PRESTO_COORDINATOR="http://127.0.0.1:8080"
+    restart: always
